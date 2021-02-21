@@ -1,16 +1,13 @@
-import React from 'react'
+import Typography from '@material-ui/core/Typography'
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
-import Typography from '@material-ui/core/Typography'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import useScrollTrigger from '@material-ui/core/useScrollTrigger'
 import Slide from '@material-ui/core/Slide'
+import logo from '../../assets/logo.svg'
 
 const HideOnScroll = (props) => {
     const { children } = props;
-    // Note that you normally won't need to set the window ref as useScrollTrigger
-    // will default to window.
-    // This is only being set here because the demo is in an iframe.
     const trigger = useScrollTrigger();
   
     return (
@@ -21,18 +18,22 @@ const HideOnScroll = (props) => {
 }
 
 const Header = (props) => {
+
     return (
-        <React.Fragment >
+        <>
             <CssBaseline />
             <HideOnScroll {...props}>
-                <AppBar>
+                <AppBar color="primary">
                     <Toolbar>
-                        <Typography variant="h6">Scroll to Hide App Bar</Typography>
+                        <img alt="Company Logo" src={logo} style={{height:"7em",padding:"10px"}} />
+                        <Typography variant="h3" >
+                            Julian's Project
+                        </Typography>
                     </Toolbar>
                 </AppBar>
             </HideOnScroll>
-            <Toolbar />
-        </React.Fragment>
+            <Toolbar style={{marginBottom:"3em"}} />
+        </>
     )
 }
 
